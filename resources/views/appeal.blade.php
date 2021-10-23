@@ -1,5 +1,4 @@
-<!DO
-  TYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta charset="utf-8">
@@ -45,7 +44,7 @@
       <div>
         <label for="phone">Телефон</label>
         <input
-          type="phone"
+          type="tel"
           name="phone"
           placeholder="+70123456789"
           value="{{ request()->isMethod('post') ? old('phone') : '' }}"
