@@ -24,9 +24,6 @@
     @if (empty($errors))
       <div class="alert alert-success">Обращение отправленно</div>
     @endif
-    @error('contacts')
-      <p class="alert alert-danger">{{ $message }}</p>
-    @enderror
     <form action="{{ route('appeal') }}" method="POST">
       @csrf
       <div>
