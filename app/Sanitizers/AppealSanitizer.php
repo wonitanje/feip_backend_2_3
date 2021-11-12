@@ -14,8 +14,6 @@ class AppealSanitizer
     }
 
     if (isset($values['gender'])) {
-      // echo $values['gender'];
-      // echo Enum::Gender[$values['gender']];
       $values['gender'] = Enum::Gender[$values['gender']];
     }
 
