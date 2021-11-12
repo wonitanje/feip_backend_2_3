@@ -5,7 +5,7 @@ namespace App\Enums;
 class Enum
 {
   const Gender = [
-    'MALE',
-    'FEMALE'
+    'MALE' => 0,
+    'FEMALE' => 1
   ];
 }

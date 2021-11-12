@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enums\Gender;
+use App\Enums\Enum;
 
 class ExtendAppealsTable extends Migration
 {
@@ -13,7 +13,7 @@ class ExtendAppealsTable extends Migration
       $table->string('surname', 40);
       $table->string('patronymic', 20)->nullable();
       $table->unsignedTinyInteger('age');
-      $table->enum('gender', [Gender::MALE, Gender::FEMALE]);
+      $table->enum('gender', Enum::Gender);
     });
   }
 

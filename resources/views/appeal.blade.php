@@ -69,7 +69,7 @@
         <label for="phone">Телефон</label>
         <input
           class="@error('phone') is-invalid @enderror"
-          type="tel"
+          type="text"
           name="phone"
           placeholder="+70123456789"
           value="{{ old('phone') }}"
@@ -82,7 +82,7 @@
         <label for="email">Электронный адресс</label>
         <input
         class="@error('email') is-invalid @enderror"
-          type="email"
+          type="text"
           name="email"
           placeholder="example@mail.ru"
           value="{{ old('email') }}"
@@ -95,7 +95,7 @@
         <label for="age">Возраст</label>
         <input
           class="@error('age') is-invalid @enderror"
-          type="number"
+          type="text"
           name="age"
           placeholder="19"
           value="{{ old('age') }}"
@@ -107,12 +107,12 @@
       <div>
         <label for="gender">Пол</label>
         <select name="gender">
-            <option value="0" {{ old('gender') == 0 ? 'selected' : '' }}>
-              Мужчина
+          
+          @foreach (array_keys($genders) as $gender)
+            <option value="{{ $gender }}" {{ old('gender') == $gender ? 'selected' : '' }}>
+              {{ $gender }}
             </option>
-            <option value="1" {{ old('gender') == 1 ? 'selected' : '' }}>
-              Женщина
-            </option>
+          @endforeach
         </select>
         @error('gender')
           <p class="alert alert-danger">{{ $message }}</p>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Enum;
 use Illuminate\Http\Request;
 use App\Models\Appeal;
 use App\Http\Requests\AppealPostRequest;
@@ -11,8 +12,9 @@ class AppealController extends Controller
 {
   public function __invoke(Request $request)
   {
-    if ($request->isMethod('get'))
-      return view('appeal');
+    if ($request->isMethod('get')) {
+      return view('appeal', ['genders' => Enum::Gender]);
+    }
 
     $handler = new AppealPostRequest;
 

@@ -3,6 +3,7 @@
 namespace App\Sanitizers;
 
 use App\Sanitizers\TrimPhone;
+use App\Enums\Enum;
 
 class AppealSanitizer
 {
@@ -10,6 +11,12 @@ class AppealSanitizer
   {
     if (isset($values['phone'])) {
       $values['phone'] = TrimPhone::handle($values['phone']);
+    }
+
+    if (isset($values['gender'])) {
+      // echo $values['gender'];
+      // echo Enum::Gender[$values['gender']];
+      $values['gender'] = Enum::Gender[$values['gender']];
     }
 
     return $values;
