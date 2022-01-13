@@ -24,6 +24,10 @@
     @if (empty($errors))
       <div class="alert alert-success">Обращение отправленно</div>
     @endif
+    @if ($suggestion_shown)
+      <p class="alert alert-success">Thank you for the feedback!</p>
+      <a href="{{ url()->previous() }}">Return to previous page</a>
+    @endif
     <form action="{{ route('appeal') }}" method="POST">
       @csrf
       <div>

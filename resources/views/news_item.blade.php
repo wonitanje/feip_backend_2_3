@@ -29,5 +29,6 @@
             </div>
             <p class="news-item__text text">{{ $item->text }}</p>
         </div>
+        @includeWhen(session('suggestion'), 'layouts.suggest_to_appeal')
     </body>
 </html>

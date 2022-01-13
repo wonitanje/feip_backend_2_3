@@ -40,5 +40,6 @@
                 {{ $news_list->links() }}
             </div>
         </div>
+        @includeWhen(session('suggestion'), 'layouts.suggest_to_appeal')
     </body>
 </html>

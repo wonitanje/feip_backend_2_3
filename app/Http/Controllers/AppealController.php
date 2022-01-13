@@ -12,8 +12,13 @@ class AppealController extends Controller
 {
   public function __invoke(Request $request)
   {
+    $suggestion_shown = $request->session()->get('suggestion_shown');
+    if ($suggestion_shown) {
+      $request->session()->put('suggestion_shown', false);
+    }
+
     if ($request->isMethod('get')) {
-      return view('appeal', ['genders' => Enum::Gender]);
+      return view('appeal', ['genders' => Enum::Gender, 'suggestion_shown' => $suggestion_shown]);
     }
 
     $handler = new AppealPostRequest;
@@ -31,6 +36,7 @@ class AppealController extends Controller
     $appeal->gender = $sanitized['gender'];
     $appeal->message = $sanitized['message'];
     $appeal->save();
+    $request->session()->put('appealed', true);
 
     return redirect()->route('appeal');
   }
