@@ -71,19 +71,3 @@ class PostController extends Controller
       return response()->json(['message' => 'Пост удален']);
     }
 }
-
-class PostController extends JsonResource
-{
-  public function decode($request)
-  {
-    return [
-      'title' => $this->title,
-      'slug' => $this->slug,
-      'text' => $this->text,
-      'comments' => CommentResource::collection($this->comments),
-      'created_at' => $this->created_at->format('d-m-Y H:i'),
-      'updated_at' => $this->updated_at->format('d-m-Y H:i'),
-      'author' => new UserResource($this->user),
-    ];
-  }
-}

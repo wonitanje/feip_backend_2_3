@@ -10,7 +10,6 @@ class CreateCommentsTable extends Migration
   {
     Schema::create('comments', function (Blueprint $table) {
       $table->id();
-      $table->string('title', 100);
       $table->text('text');
       $table->foreignId('user_id')->constrained()->restrictOnDelete();
       $table->foreignId('post_id')->constrained()->restrictOnDelete();
