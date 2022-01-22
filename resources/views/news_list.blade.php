@@ -21,6 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
+        @include('header')
         <div class="news">
             <h1 class="title">Новости</h1>
 
