@@ -18,9 +18,9 @@ class ChangeUser extends Migration
   public function down()
   {
     Schema::table('users', function (Blueprint $table) {
-      $table->string('login')->unique();
-      $table->string('name')->nullable()->change();
-      $table->string('email')->nullable()->change();
+      $table->dropColumn(['login']);
+      $table->string('name')->nullable(false)->change();
+      $table->string('email')->unique()->nullable(false)->change();
     });
   }
 }
