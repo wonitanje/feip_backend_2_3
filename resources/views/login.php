@@ -24,7 +24,7 @@
         <div>
           <label>Логин</label>
           <input class="bordered" name="login" type="text"/>
-          @error('name')
+          @error('login')
           <p class="error">{{ $message }}</p>
           @enderror
         </div>
